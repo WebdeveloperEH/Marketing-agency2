@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Agency</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d0d0d;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 60px;
+      background-color: #0d0d0d;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #d72638;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav ul li a:hover {
+      color: #d72638;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 20px;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: -1;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .hero-content h1 {
+      font-size: 70px;
+      color: #d72638;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 25px;
+      color: #ccc;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .portfolio {
+      padding: 60px 40px;
+    }
+
+    .portfolio h2 {
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .grid img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .grid img:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .hero-content h1 {
+        font-size: 36px;
+      }
+
+      .hero-content p {
+        font-size: 16px;
+      }
+    }
+
+    /*Contact form*/
+    .contact-section {
+  background-color: #0D0D0D;
+  padding: 60px 20px;
+  font-family: sans-serif;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-container h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.contact-container p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  color: #ffffff;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #00c2a8;
+  outline: none;
+}
+
+.contact-form button {
+  padding: 14px;
+  background-color: #D72638;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #009e8c;
+}
+
+
+    /*Footer*/
+
+    .site-footer {
+  background-color: #111;
+  color: #eee;
+  padding: 40px 20px 20px;
+  font-family: sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1 1 250px;
+  padding-left: 80px;
+}
+
+.footer-section h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #00ffd5;
+}
+
+.footer-section p {
+  margin: 8px 0;
+}
+
+.footer-section form {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section input[type="email"] {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.footer-section button {
+  padding: 10px;
+  background-color: #D72638;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.footer-section button:hover {
+  background-color: #00c2a8;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 14px;
+  color: #aaa;
+  border-top: 1px solid #333;
+  padding-top: 15px;
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">AgencyName</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <!-- Optional video background -->
+    <video autoplay muted loop playsinline>
+    <source src="img/vedio.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Big Agency Work. Small Agency Energy.</h1>
+      <p>Premium digital marketing solutions with a personal touch.</p>
+    </div>
+  </section>
+
+  <section id="portfolio" class="portfolio">
+    <h2>Our Work</h2>
+    <div class="grid">
+      <img src="img/Illinois-HCOM.png" alt="Portfolio Sample 1" />
+      <img src="img/Illinois-SBC-Phone.png" alt="Portfolio Sample 2" />
+      <img src="img/Illinois-SBC-Tablet.png" alt="Portfolio Sample 3" />
+      <img src="img/LoyolaMedicine.png" alt="Portfolio Sample 4" />
+      <img src="img/Optum.png" alt="Portfolio Sample 5" />
+      <img src="img/oreo.jpg" alt="Portfolio Sample 6" />
+      <img src="img/Pazzos.jpg" alt="Portfolio Sample 6" />
+      <img src="img/PiesDescalzos.jpg" alt="Portfolio Sample 6" />
+      <img src="img/RogersAndHollands.png" alt="Portfolio Sample 6" />
+      <img src="img/Shakira.png" alt="Portfolio Sample 6" />
+    </div>
+  </section>
+
+  <section class="contact-section" id="contact">
+  <div class="contact-container">
+    <h2>Contact us</h2>
+    <p>You can let us know your questions, suggestions, or project ideas.</p>
+
+    <form class="contact-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email." required>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" placeholder="Enter your message..." required></textarea>
+      </div>
+
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</section>
+
+
+  <footer class="site-footer">
+  <div class="footer-container">
+    <!-- সেকশন ১: মেনু ও গুরুত্বপূর্ণ লিংক -->
+    <div class="footer-section">
+      <h3>Important Links</h3>
+      <ul>
+        <li><a href="#home"><i class="fa-solid fa-angles-right"></i>Home</a></li>
+        <li><a href="#portfolio"><i class="fa-solid fa-angles-right"></i>Portfolio</a></li>
+        <li><a href="#services"><i class="fa-solid fa-angles-right"></i>Services</a></li>
+        <li><a href="#about"><i class="fa-solid fa-angles-right"></i>About </a></li>
+      </ul>
+    </div>
+
+    <!-- সেকশন ২: কন্টাক্ট ইনফো -->
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p><i class="fa-solid fa-location-dot"></i> Mymensingh, Bangladesh</p>
+      <p><i class="fa-solid fa-phone"></i> +880 1234 567890</p>
+      <p><i class="fa-solid fa-envelope-open"></i> contact@yourdomain.com</p>
+    </div>
+
+    <!-- সেকশন ৩: সাবস্ক্রাইব -->
+    <div class="footer-section">
+      <h3>Subscribe</h3>
+      <form>
+        <input type="email" placeholder="Enter your email." required>
+        <button type="submit">Subscribe <i class="fa-solid fa-arrow-right"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <!-- কপিরাইট -->
+  <div class="footer-bottom">
+    <p>© 2025 LEES. All rights reserved.</p>
+  </div>
+</footer>
+
+
+</body>
+</html>
